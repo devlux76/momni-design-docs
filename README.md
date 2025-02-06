@@ -1,114 +1,168 @@
-# Design a complete PostgreSQL schema and secure functions for Momni, a care-sharing platform connecting families for childcare services with integrated social media features. The design should include:
+Ah, this fundamentally changes the nature of the system - it's primarily a trust network that can optionally expand to public offerings. Let me rewrite the README with this core concept in mind:
 
-DATABASE REQUIREMENTS:
-1. Core Schema Requirements:
-   - Implement role-based access control using a user_roles table with non-stacking roles
-   - Define two special administrative roles: 
-     * Financial Administrator: manages refunds, credits, and monetary operations
-     * Community Administrator: handles user management, content moderation, and reporting
-   - Support flexible family structures where:
-     * Users can belong to multiple families
-     * Users can create multiple families
-     * Family creators have booking privileges for all family members
-   - Enable hosting capabilities with:
-     * Personal profiles
-     * Family profiles
-     * Host profiles with availability management
-     * Host verification status tracking
-   - Support Circle Up social media features through:
-     * User-created circles with customizable privacy settings
-     * Circle membership and moderation capabilities
-     * Rich media content sharing within circles
-     * Social interaction tracking (likes, comments, shares)
+```markdown
+# Momni Platform - Trust-Based Care-Sharing Network
 
-2. Safety and Verification Schema:
-   - Background check tracking and renewal dates
-   - Identity verification status and documents
-   - Insurance documentation
-   - Emergency contacts
-   - Incident reporting
-   - Review and rating system
-   - Circle content moderation and reporting system
-   - User behavior tracking and safety flags
+## Overview
+Momni is a platform enabling mothers to coordinate childcare within their trusted social circles, with optional expansion to public offerings. The core principle is that mothers are best positioned to make care decisions within their own social networks, while providing a pathway to offer care more broadly after verification.
 
-3. Booking and Schedule Management:
-   - Availability calendar with recurring slots
-   - Booking status tracking
-   - Waitlist management
-   - Group booking capability
-   - Cancellation policy enforcement
-   - Special requirements tracking (allergies, medications, etc.)
-   - Integration with circle events and activities
+## 1. Core Requirements
 
-4. Financial Operations:
-   - Payment processing and history
-   - Refund tracking
-   - Transaction dispute management
-   - Tax document generation
-   - Insurance verification
-   - Circle-based group purchase capabilities
-   - Event payment processing
+### 1.1 User Management
+- Basic user profile:
+  * Display name
+  * Contact preferences
+  * General location (city/neighborhood level only)
+  * Profile photo (optional)
+  * Brief bio
+- Two administrative roles:
+  * Financial Administrator: manages payments, refunds, credits
+  * Community Administrator: handles content moderation, reporting
 
-5. Communication System:
-   - Secure messaging between users
-   - Notification preferences and history
-   - Document sharing and storage
-   - Emergency alert system
-   - Circle-based group messaging
-   - Content sharing permissions
-   - Rich media support for circle communications
+### 1.2 Circle Management (Primary Trust Network)
+- Users can:
+  * Create multiple circles
+  * Join multiple circles
+  * Set circle privacy levels
+  * Manage circle membership
+- Circle types:
+  * Family circle (immediate family members)
+  * Extended family circle
+  * Friend circle
+  * Neighborhood circle
+  * Special interest circle (e.g., homeschool moms)
+- Circle features:
+  * Private messaging
+  * Care availability sharing
+  * Event planning
+  * Resource sharing
+  * Activity coordination
 
-6. Circle Up Social Platform:
-   - Circle management system:
-     * Circle creation and configuration
-     * Membership management
-     * Privacy controls
-     * Content moderation tools
-   - Content management:
-     * Multi-media post creation and storage
-     * Content categorization and tagging
-     * Content discovery and search
-     * Trending content algorithms
-   - Social interaction tracking:
-     * User engagement metrics
-     * Content performance analytics
-     * Circle activity monitoring
-     * Cross-circle interaction tracking
+### 1.3 Care Coordination
+- Within circles:
+  * Share availability freely
+  * Coordinate care swaps
+  * Organize group activities
+  * Track favors/exchanges
+- Public listings (requires background_check=true):
+  * Visible to users outside own circles
+  * Enhanced profile visibility
+  * Public availability calendar
+  * Rate settings
+  * Booking management
 
-TECHNICAL REQUIREMENTS:
-1. API Security:
-   - All database operations must be performed through secure functions
-   - API endpoints must be RESTful and JWT-authenticated
-   - Implement row-level security where appropriate
-   - Handle soft deletions for audit trails
-   - Content access control based on circle privacy settings
+### 1.4 Social Features
+- Content sharing:
+  * Circle-specific posts
+  * Event announcements
+  * Activity planning
+  * Resource recommendations
+- Interaction tracking:
+  * Comments
+  * Reactions
+  * RSVPs
+  * Care coordination responses
 
-2. Performance Considerations:
-   - Include appropriate indexes
-   - Implement efficient query patterns
-   - Consider partitioning for large tables
-   - Define appropriate cascade behaviors
-   - Optimize for high-volume social interactions
-   - Content delivery optimization
-   - Real-time update handling
+## 2. Safety Features
 
-3. Documentation Requirements:
-   - Full schema documentation with relationships
-   - Function documentation with parameters and return values
-   - API endpoint documentation
-   - Security policy documentation
-   - Example queries for common operations
-   - Circle Up feature documentation
-   - Content moderation guidelines
-   - Privacy control documentation
+### 2.1 Trust Network
+- Circle-based trust system:
+  * Care offerings visible only within joined circles by default
+  * Circle creator approval for new members
+  * Member removal capabilities
+  * Circle privacy settings
+- Public offering requirements:
+  * Background check boolean flag
+  * Enhanced profile requirements
+  * Review system (public offerings only)
 
-Please provide:
-1. Complete SQL schema with all tables, indexes, and constraints
-2. Secure functions for all operations
-3. API endpoint specifications
-4. Security implementation details
-5. Example queries for common operations
-6. Performance optimization recommendations
-7. Circle Up integration specifications
-8. Content moderation workflows
-9. Social feature scaling strategies
+### 2.2 Safety Mechanisms
+- Report system for inappropriate behavior
+- Circle-level moderation tools
+- Emergency contact system
+- Incident reporting within circles
+- Activity logging for safety
+
+## 3. Booking and Scheduling
+
+### 3.1 Circle-Based Coordination
+- Availability sharing
+- Care swap tracking
+- Group activity planning
+- Calendar integration
+- Notification system
+
+### 3.2 Public Booking (for verified hosts)
+- Availability calendar
+- Booking management
+- Cancellation handling
+- Payment processing
+- Review system
+
+## 4. Financial Operations
+
+### 4.1 Circle-Based Exchange
+- Care swap tracking
+- Group expense sharing
+- Activity cost splitting
+- Payment handling for paid arrangements
+
+### 4.2 Public Offering Payments
+- Secure payment processing
+- Refund management
+- Transaction history
+- Tax reporting support
+
+## 5. Technical Requirements
+
+### 5.1 Data Security
+- Minimal PII collection
+- End-to-end encryption for messages
+- Circle content isolation
+- Secure API endpoints
+- Row-level security implementation
+
+### 5.2 Performance Requirements
+- Real-time messaging
+- Calendar sync
+- Notification delivery
+- Content delivery optimization
+- Mobile-first design support
+
+### 5.3 Integration Points
+- Background check status integration
+- Payment processing
+- Notification delivery
+- Calendar systems
+- Media storage
+
+## 6. Implementation Deliverables
+
+### 6.1 Database Schema
+- Complete PostgreSQL schema
+- Secure functions
+- Access control policies
+- Indexing strategy
+- Partitioning plan
+
+### 6.2 API Specification
+- RESTful endpoint definitions
+- Authentication requirements
+- Rate limiting rules
+- Response formats
+- Error handling
+
+### 6.3 Security Implementation
+- Authentication system
+- Authorization rules
+- Data encryption
+- Audit logging
+- Privacy controls
+
+### 6.4 Documentation
+- Schema documentation
+- API documentation
+- Security documentation
+- Integration guides
+- Operational procedures
+```
