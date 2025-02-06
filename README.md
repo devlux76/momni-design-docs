@@ -20,14 +20,12 @@ Momni is a platform enabling mothers to coordinate childcare within their truste
 - Users can:
   * Create multiple circles
   * Join multiple circles
-  * Set circle privacy levels
-  * Manage circle membership
+  * Set circle privacy levels (public or private)
+  * Manage circle membership (invite or add, remove etc)
 - Circle types:
-  * Family circle (immediate family members)
-  * Extended family circle
-  * Friend circle
-  * Neighborhood circle
-  * Special interest circle (e.g., homeschool moms)
+  * Family circle (immediate family members, she has authority to book for them, i.e. husband, kids, grand kids etc)
+  * Trusted circle (2nd order family members (i.e. sister in law), close personal friends, these people trust eachother with their kids and serves as an endorsement) 
+  * Special interest circle (e.g., homeschool moms, book clubs, etc)
 - Circle features:
   * Private messaging
   * Care availability sharing
@@ -36,7 +34,7 @@ Momni is a platform enabling mothers to coordinate childcare within their truste
   * Activity coordination
 
 ### 1.3 Care Coordination
-- Within circles:
+- Within trusted circles:
   * Share availability freely
   * Coordinate care swaps
   * Organize group activities
@@ -66,7 +64,7 @@ Momni is a platform enabling mothers to coordinate childcare within their truste
 - Circle-based trust system:
   * Care offerings visible only within joined circles by default
   * Circle creator approval for new members
-  * Member removal capabilities
+  * Member removal capabilities (members can remove themselves from any circle at any time)
   * Circle privacy settings
 - Public offering requirements:
   * Background check boolean flag
@@ -74,10 +72,9 @@ Momni is a platform enabling mothers to coordinate childcare within their truste
   * Review system (public offerings only)
 
 ### 2.2 Safety Mechanisms
-- Report system for inappropriate behavior
+- Incident reporting within circles
 - Circle-level moderation tools
 - Emergency contact system
-- Incident reporting within circles
 - Activity logging for safety
 
 ## 3. Booking and Scheduling
