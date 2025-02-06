@@ -1,6 +1,3 @@
-Ah, this fundamentally changes the nature of the system - it's primarily a trust network that can optionally expand to public offerings. Let me rewrite the README with this core concept in mind:
-
-```markdown
 # Momni Platform - Trust-Based Care-Sharing Network
 
 ## Overview
@@ -165,4 +162,4 @@ Momni is a platform enabling mothers to coordinate childcare within their truste
 - Security documentation
 - Integration guides
 - Operational procedures
-```
+
